@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.rezk.peopleware.service.JobService;
 import br.com.rezk.peopleware.service.dao.JobDAO;
 import br.com.rezk.peopleware.service.model.Job;
+import br.com.rezk.peopleware.service.response.JobDetailResponse;
 
 public class JobServiceProvider implements JobService {
 	
@@ -28,6 +29,16 @@ public class JobServiceProvider implements JobService {
 			e.printStackTrace();
 			return new ArrayList<Job>();
 		}
+	}
+
+	@Override
+	public JobDetailResponse jobDetail(int applicantId) {
+		return jobDAO.jobDetail(applicantId);
+	}
+
+	@Override
+	public List<Job> possibleJobs(int id) {
+		return jobDAO.possibleJobs(id);
 	}
 
 }

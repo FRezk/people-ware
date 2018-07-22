@@ -1,23 +1,22 @@
-package br.com.rezk.peopleware.service.model;
+package br.com.rezk.peopleware.service.response;
 
 import java.util.List;
 
-public class Job {
-	
-	private Long id;
+public class JobDetailResponse {
+	private int id;
 	private String companyName;
 	private String phone;
 	private String fardel;
 	private String description;
 	private int salary;
-	private boolean fullTime;
+	private boolean fulltime;
 	private boolean academic;
-	private List<JobTechSkills> techSkills;
+	private List<String> skills;
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getCompanyName() {
@@ -50,11 +49,11 @@ public class Job {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public boolean isFullTime() {
-		return fullTime;
+	public boolean isFulltime() {
+		return fulltime;
 	}
-	public void setFullTime(boolean fullTime) {
-		this.fullTime = fullTime;
+	public void setFulltime(boolean fulltime) {
+		this.fulltime = fulltime;
 	}
 	public boolean isAcademic() {
 		return academic;
@@ -62,11 +61,11 @@ public class Job {
 	public void setAcademic(boolean academic) {
 		this.academic = academic;
 	}
-	public List<JobTechSkills> getTechSkills() {
-		return techSkills;
+	public List<String> getSkills() {
+		return skills;
 	}
-	public void setTechSkills(List<JobTechSkills> techSkills) {
-		this.techSkills = techSkills;
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
 	}
 	
 }

@@ -1,21 +1,21 @@
 package br.com.rezk.peopleware.service.model;
 
 public class TechSkills {
-	private Long id;
-	private String name;
 	
-	public Long getId() {
-		return id;
+	private int techSkillId;
+	private int techSkillLevel;
+	
+	public int getTechSkillId() {
+		return techSkillId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setTechSkillId(int techSkillId) {
+		this.techSkillId = techSkillId;
 	}
-	public String getName() {
-		return name;
+	public int getTechSkillLevel() {
+		return techSkillLevel;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTechSkillLevel(int techSkillLevel) {
+		this.techSkillLevel = techSkillLevel;
 	}
-
 	
 }

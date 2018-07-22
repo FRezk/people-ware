@@ -6,20 +6,28 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.google.gson.Gson;
 
+import br.com.rezk.peopleware.service.ApplicantService;
 import br.com.rezk.peopleware.service.JobService;
-import br.com.rezk.peopleware.service.LoginService;
+import br.com.rezk.peopleware.service.dao.ApplicantDAO;
 import br.com.rezk.peopleware.service.dao.JobDAO;
 import br.com.rezk.peopleware.service.database.DbExecutor;
+import br.com.rezk.peopleware.service.mapper.MapRequest;
 import br.com.rezk.peopleware.service.mapper.Mapper;
+import br.com.rezk.peopleware.service.model.Applicant;
+import br.com.rezk.peopleware.service.model.ApplicantTechSkills;
 import br.com.rezk.peopleware.service.model.Job;
+import br.com.rezk.peopleware.service.provider.ApplicantServiceProvider;
 import br.com.rezk.peopleware.service.provider.JobServiceProvider;
-import br.com.rezk.peopleware.service.provider.LoginServiceProvider;
+import br.com.rezk.peopleware.service.request.ApplicantRequest;
+import br.com.rezk.peopleware.service.request.ApplicantSkillRequest;
+import br.com.rezk.peopleware.service.request.Request;
 
 @Configuration
 public class BeansConfig {
@@ -28,15 +36,20 @@ public class BeansConfig {
 	public Gson gson() {
 		return new Gson();
 	}
-
-	@Bean
-	public LoginService loginService() {
-		return new LoginServiceProvider();
-	}
 	
 	@Bean
 	public StringBuilder sb() {
 		return new StringBuilder();
+	}
+	
+	@Bean
+	public JobService jobService() {
+		return new JobServiceProvider();
+	}
+	
+	@Bean
+	public ApplicantService applicantService() {
+		return new ApplicantServiceProvider();
 	}
 	
 	@Bean
@@ -45,8 +58,8 @@ public class BeansConfig {
 	}
 	
 	@Bean
-	public JobService jobService() {
-		return new JobServiceProvider();
+	public ApplicantDAO applicantDAO() {
+		return new ApplicantDAO();
 	}
 	
 	@Bean(name="jobMapper")
@@ -70,7 +83,39 @@ public class BeansConfig {
 		};
 		return mapper;
 	}
-
+	
+	@Bean(name="applicantRequest")
+	public MapRequest mapRequest() {
+		MapRequest mapRequest = (Request request) -> {
+			Applicant applicant = new Applicant();
+			ApplicantRequest applicantRequest = (ApplicantRequest) request;
+			applicant.setName(applicantRequest.getName());
+			applicant.setEmail(applicantRequest.getEmail());
+			applicant.setAcademicDegree(applicantRequest.getAcademic());
+			applicant.setSalary(applicantRequest.getMinimumSalary());
+			applicant.setPhone(applicantRequest.getPhone());
+			
+			if(applicantRequest.getWorkingTime().size() > 1) {
+				applicant.setIdWorkTIme(2);
+			} else if(applicantRequest.getWorkingTime().get(0).equalsIgnoreCase("full-time")) {
+				applicant.setIdWorkTIme(1);
+			} else {
+				applicant.setIdWorkTIme(0);
+			}
+			
+			List<ApplicantTechSkills> applicantTechSkills = new ArrayList<ApplicantTechSkills>();
+			for(ApplicantSkillRequest skillRequest : applicantRequest.getSkills()) {
+				ApplicantTechSkills techSkill = new ApplicantTechSkills();
+				techSkill.setTechSkillId(skillRequest.getId());
+				techSkill.setTechSkillLevel(skillRequest.getValue());
+				applicantTechSkills.add(techSkill);
+			}
+			applicant.setSkills(applicantTechSkills);
+			return applicant;
+		};
+		return mapRequest;
+	}
+	
 	@Bean
 	public DbExecutor dbExecutor() {
 		DbExecutor db = (String clausule) -> {
