@@ -2,6 +2,8 @@ package br.com.rezk.peopleware.service.model;
 
 import java.util.List;
 
+import br.com.rezk.peopleware.service.request.SkillRequest;
+
 public class Job {
 	
 	private Long id;
@@ -12,7 +14,7 @@ public class Job {
 	private int salary;
 	private boolean fullTime;
 	private boolean academic;
-	private List<JobTechSkills> techSkills;
+	private List<SkillRequest> techSkills;
 	
 	public Long getId() {
 		return id;
@@ -62,10 +64,10 @@ public class Job {
 	public void setAcademic(boolean academic) {
 		this.academic = academic;
 	}
-	public List<JobTechSkills> getTechSkills() {
+	public List<SkillRequest> getTechSkills() {
 		return techSkills;
 	}
-	public void setTechSkills(List<JobTechSkills> techSkills) {
+	public void setTechSkills(List<SkillRequest> techSkills) {
 		this.techSkills = techSkills;
 	}
 	

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Welcome to People-ware</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Content-Language" content="en" />
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#4188c9">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+<script src="./assets/libs/tabler/assets/js/require.min.js"></script>
+<script>
+  requirejs.config({
+      baseUrl: './assets/libs/tabler/'
+  });
+</script>
+<!-- Dashboard Core -->
+<link href="./assets/libs/tabler/assets/css/dashboard.css" rel="stylesheet" />
+<script src="./assets/libs/tabler/assets/js/dashboard.js"></script>
+<!-- Input Mask Plugin -->
+<script src="./assets/libs/tabler/assets/plugins/input-mask/plugin.js"></script>
+  </head>
+  <body class="">
+    <div class="page">
+      <div class="page-single">
+        <div class="container">
+          <div class="row mb-4">
+            <div class=" col-md-12 text-center text-wrap">
+              <h1>Welcome to People-ware!</h1>
+              <p>You are interested in...</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mx-auto">
+              <div class="btn-list text-center">
+                <div class="row">
+                  <div class="col-md-6 mt-4">
+                    <a  id="hireProf" href="./index.html" class="btn btn-primary btn-block btn-lg">Hire professionals</a>
+                  </div>
+                  <div class="col-md-6 mt-4">
+                    <a href="#" class="btn btn-secondary btn-block btn-lg" data-toggle="modal" data-target="#newApplicantModal">Find a Job</a>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="text-center text-muted">
+                Don't have account yet? <a href="./register.jsp">Sign up</a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="newApplicantModal" tabindex="-1" role="dialog" aria-labelledby="newApplicantModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newApplicantModal">Applicant</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <form id="applicantForm">
+            <div class="modal-body">
+              <div class="row">
+                <!-- Company name -->
+                <div class="form-group col-sm-12 col-md-12">
+                  <label class="form-label">
+                    Full name <span class="form-required">*</span>
+                  </label>
+                  <input name="name" required="required" type="text" class="form-control" placeholder="ex. Patrick Shyu">
+                </div>
+                <!-- Email -->
+                <div class="form-group col-sm-12 col-md-6">
+                  <label class="form-label">
+                    Email <span class="form-required">*</span>
+                  </label>
+                  <input name="email" required="required" type="email" class="form-control" placeholder="ex. example@example.com">
+                </div>
+                <!-- Phone -->
+                <div class="form-group col-sm-12 col-md-6">
+                  <label class="form-label">
+                    Phone <span class="form-required">*</span>
+                  </label>
+                  <input name="phone" required="required" type="text" class="form-control" data-mask="+99 (99) 99 999 999" placeholder="ex. +32 (0) 55 555 555">
+                </div>
+                <!-- Minimum Salary -->
+                <div class="form-group col-sm-12 col-md-5">
+                  <label class="form-label"> Minimum Salary </label>
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-dollar-sign"></i>
+                    </span>
+                    <input type="text" name="minimumSalary" class="form-control" placeholder="" maxlength="10" data-mask="000.000,00" data-mask-reverse="true">
+                  </div>
+                </div>
+                <!-- Working time -->
+                <div class="form-group col-sm-12 col-md-7">
+                  <label class="form-label">Working Time <span class="form-required">*</span></label>
+                  <div class="selectgroup selectgroup-pills">
+                    <label class="selectgroup-item">
+                      <input type="checkbox" name="workingTime" value="full-time" class="selectgroup-input" checked="checked">
+                      <span class="selectgroup-button">Full-time</span>
+                    </label>
+                    <label class="selectgroup-item">
+                      <input type="checkbox" name="workingTime" value="part-time" class="selectgroup-input">
+                      <span class="selectgroup-button">Part-time</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- Academic Degree -->
+                <div class="form-group col-sm-12 col-md-12">
+                  <label class="form-label">
+                    Academic Degree
+                  </label>
+                  <input name="academic" type="text" class="form-control" placeholder="ex. Computer Science">
+                </div>
+                <!-- Requirements -->
+                <div class="form-group col-sm-12 col-md-12">
+                  <div class="form-label">Requirements</div>
+                  <div class="table-responsive">
+                    <table class="table mb-0">
+                      <thead>
+                        <tr>
+                          <th class="pl-0">Technical skill</th>
+                          <th>Expertise level</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td class="pl-0">
+                          <input type="text" class="form-control" value="Java EE" disabled="disabled">
+                        </td>
+                        <td class="pr-0">
+                          <div class="col">
+                            <input type="range" data-target="#javaEE" class="form-control custom-range" step="1" min="0" max="5" value="0">
+                          </div>
+                        </td>
+                        <td class="pr-0">
+                          <div class="col-auto">
+                            <input disabled="disabled" id="javaEE" name="javaEE" type="number" class="form-control w-8" value="0">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pl-0">
+                          <input type="text" class="form-control" value="Bootstrap" disabled="disabled">
+                        </td>
+                        <td class="pr-0">
+                          <div class="col">
+                            <input type="range" data-target="#bootstrap" class="form-control custom-range" step="1" min="0" max="5" value="0">
+                          </div>
+                        </td>
+                        <td class="pr-0">
+                          <div class="col-auto">
+                            <input disabled="disabled" id="bootstrap" name="bootstrap" type="number" class="form-control w-8" value="0">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pl-0">
+                          <input type="text" class="form-control" value="Spring MVC" disabled="disabled">
+                        </td>
+                        <td class="pr-0">
+                          <div class="col">
+                            <input type="range" data-target="#springMVC" class="form-control custom-range" step="1" min="0" max="5" value="0">
+                          </div>
+                        </td>
+                        <td class="pr-0">
+                          <div class="col-auto">
+                            <input disabled="disabled" id="springMVC" name="springMVC" type="number" class="form-control w-8" value="0">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pl-0">
+                          <input type="text" class="form-control" value="Eclipse" disabled="disabled">
+                        </td>
+                        <td class="pr-0">
+                          <div class="col">
+                            <input type="range" data-target="#eclipse" class="form-control custom-range" step="1" min="0" max="5" value="0">
+                          </div>
+                        </td>
+                        <td class="pr-0">
+                          <div class="col-auto">
+                            <input disabled="disabled" id="eclipse" name="eclipse" type="number" class="form-control w-8" value="0">
+                          </div>
+                        </td>
+                      </tr>     
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" class="btn btn-primary" value="Apply">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      
+      requirejs(['jquery'], function($) {
+        $(function() {
+          $("#hireProf").on('click', function(e){
+            e.preventDefault();
+            localStorage.removeItem('idApplicant');
+            location.href = $(this).attr('href');
+          });
+
+          var $applicantForm = $('#applicantForm');
+          
+          $applicantForm.on('submit', apply);
+
+          function apply(e) {
+            e.preventDefault();
+            form = e.target;
+            var workingTime = [];
+            var minimumSalary = parseInt(form.minimumSalary.value.split(',')[0].replace('.', ''));
+
+            
+            $(form.workingTime).each(function() {
+              var $this = $(this);
+              if($this.is(':checked')) {
+                workingTime.push($this.val());
+              }
+            });
+
+            var skills = [
+              {
+                id: 1,
+                value: parseInt(form.javaEE.value)
+              },
+              {
+                id: 2,
+                value: parseInt(form.bootstrap.value)
+              },
+              {
+                id: 3,
+                value: parseInt(form.springMVC.value)
+              },
+              {
+                id: 4,
+                value: parseInt(form.eclipse.value)
+              }
+            ]
+
+            // Formulário não deve ser enviado se o valor total de skills for igual a 0
+            var skillsCount = 0
+            
+            for(var i = 0; i < skills.length; i++) {
+              skillsCount += skills[i].value;
+            }
+
+            if(skillsCount === 0) {
+              alert('Não tem skills - validar msg');
+            }
+
+            var applicant = {
+              name: form.name.value,
+              email: form.email.value,
+              phone: form.phone.value,
+              minimumSalary: minimumSalary,
+              workingTime: workingTime,
+              academic: form.academic.value,
+              skills: skills
+            }
+
+            $.ajax({
+                url: 'http://localhost:8080/peopleware-api/insertApplicant',
+                type: 'POST',
+                headers: { 
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json' 
+                },
+                data: JSON.stringify(applicant),
+                success: function(res) {
+                    localStorage.setItem('idApplicant', res.idApplicant);
+                    location.href = './index.html';
+                }   
+            })
+
+          }
+
+          $('.custom-range').on('input', function() {
+            var $this = $(this);
+            $($this.data('target')).val($this.val());
+          });
+
+
+        });
+
+      });
+
+      require(['input-mask']);
+
+
+    </script>
+  </body>
+</html>

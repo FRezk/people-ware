@@ -3,6 +3,7 @@ package br.com.rezk.peopleware.api.resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,24 +24,28 @@ public class JobResource {
 	@Autowired
 	private	Gson gson;
 	
+	@CrossOrigin
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, value="/publishJob")
 	public HttpStatus publishJob(@RequestBody Job job) {
 		jobService.publishJob(job);
 		return HttpStatus.ACCEPTED;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/listJobs")
 	public String listJobs() {
 		return gson.toJson(jobService.listJobs());
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/jobDetail/{id}")
 	public String jobDetails(@PathVariable int id) {
 		return gson.toJson(jobService.jobDetail(id));
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/possibleJobs/{id}")
-	public String possibleJobs(@PathVariable int applicantId) {
+	@CrossOrigin
+	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/possibleJobs/{applicantId}")
+	public String possibleJobs(@PathVariable("applicantId") int applicantId) {
 		return gson.toJson(jobService.possibleJobs(applicantId));
 	}
 

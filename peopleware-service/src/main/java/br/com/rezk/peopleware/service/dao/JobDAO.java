@@ -14,6 +14,7 @@ import br.com.rezk.peopleware.service.model.Applicant;
 import br.com.rezk.peopleware.service.model.ApplicantTechSkills;
 import br.com.rezk.peopleware.service.model.Job;
 import br.com.rezk.peopleware.service.model.JobTechSkills;
+import br.com.rezk.peopleware.service.request.SkillRequest;
 import br.com.rezk.peopleware.service.response.JobDetailResponse;
 import br.com.rezk.peopleware.service.vo.JobVO;
 import br.com.rezk.peopleware.service.vo.SkillVO;
@@ -62,19 +63,18 @@ public class JobDAO {
 		sb.append(SEPARATOR_STRING);
 		sb.append(job.isFullTime());
 		sb.append(SULFIX);
-		System.out.println(sb.toString());
 		db.run(sb.toString());
 		try {
 			ResultSet run = db.run("select max(id) from pw.job");
 			run.next();
-			for (JobTechSkills techSkill : job.getTechSkills()) {
+			for (SkillRequest techSkill : job.getTechSkills()) {
 				sb.setLength(0);
 				sb.append("insert into pw.job_tech_skills (job_id, tech_skill_id, tech_skill_level) values (");
 				sb.append(run.getInt(1));
 				sb.append(SEPARATOR);
-				sb.append(techSkill.getTechSkillId());
+				sb.append(techSkill.getId());
 				sb.append(SEPARATOR);
-				sb.append(techSkill.getTechSkillLevel());
+				sb.append(techSkill.getValue());
 				sb.append(");");
 				db.run(sb.toString());
 			}

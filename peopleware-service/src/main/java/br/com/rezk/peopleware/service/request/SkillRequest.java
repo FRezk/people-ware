@@ -1,6 +1,6 @@
 package br.com.rezk.peopleware.service.request;
 
-public class ApplicantSkillRequest {
+public class SkillRequest {
 	private int id;
 	private int value;
 	

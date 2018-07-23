@@ -2,6 +2,7 @@ package br.com.rezk.peopleware.api.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +23,13 @@ public class ApplicantResource {
 	@Autowired
 	private Gson gson;
 
+	@CrossOrigin
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, value="/insertApplicant")
 	public String insertApplicant(@RequestBody ApplicantRequest request) {
 		return gson.toJson(applicantService.insertApplicant(request));
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/bestApplicants/{jobId}")
 	public String bestApplicants(@PathVariable int jobId) {
 		return gson.toJson(applicantService.bestApplicants(jobId));

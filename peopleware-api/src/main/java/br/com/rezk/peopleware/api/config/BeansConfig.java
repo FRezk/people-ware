@@ -26,7 +26,7 @@ import br.com.rezk.peopleware.service.model.Job;
 import br.com.rezk.peopleware.service.provider.ApplicantServiceProvider;
 import br.com.rezk.peopleware.service.provider.JobServiceProvider;
 import br.com.rezk.peopleware.service.request.ApplicantRequest;
-import br.com.rezk.peopleware.service.request.ApplicantSkillRequest;
+import br.com.rezk.peopleware.service.request.SkillRequest;
 import br.com.rezk.peopleware.service.request.Request;
 
 @Configuration
@@ -104,7 +104,7 @@ public class BeansConfig {
 			}
 			
 			List<ApplicantTechSkills> applicantTechSkills = new ArrayList<ApplicantTechSkills>();
-			for(ApplicantSkillRequest skillRequest : applicantRequest.getSkills()) {
+			for(SkillRequest skillRequest : applicantRequest.getSkills()) {
 				ApplicantTechSkills techSkill = new ApplicantTechSkills();
 				techSkill.setTechSkillId(skillRequest.getId());
 				techSkill.setTechSkillLevel(skillRequest.getValue());

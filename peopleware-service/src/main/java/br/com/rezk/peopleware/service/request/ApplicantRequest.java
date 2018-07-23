@@ -9,7 +9,7 @@ public class ApplicantRequest implements Request{
 	private String phone;
 	private int minimumSalary;
 	private String academic;
-	private List<ApplicantSkillRequest> skills;
+	private List<SkillRequest> skills;
 	private List<String> workingTime;
 	
 	public String getName() {
@@ -42,10 +42,10 @@ public class ApplicantRequest implements Request{
 	public void setAcademic(String academic) {
 		this.academic = academic;
 	}
-	public List<ApplicantSkillRequest> getSkills() {
+	public List<SkillRequest> getSkills() {
 		return skills;
 	}
-	public void setSkills(List<ApplicantSkillRequest> skills) {
+	public void setSkills(List<SkillRequest> skills) {
 		this.skills = skills;
 	}
 	public List<String> getWorkingTime() {
