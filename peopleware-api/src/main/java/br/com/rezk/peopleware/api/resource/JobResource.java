@@ -10,19 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-
 import br.com.rezk.peopleware.service.JobService;
 import br.com.rezk.peopleware.service.model.Job;
 
 @RestController
-public class JobResource {
+public class JobResource extends Resource {
 	
 	@Autowired
 	private JobService jobService;
-	
-	@Autowired
-	private	Gson gson;
 	
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, value="/publishJob")

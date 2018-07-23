@@ -9,19 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-
 import br.com.rezk.peopleware.service.ApplicantService;
 import br.com.rezk.peopleware.service.request.ApplicantRequest;
 
 @RestController
-public class ApplicantResource {
+public class ApplicantResource extends Resource {
 
 	@Autowired
 	private ApplicantService applicantService;
-	
-	@Autowired
-	private Gson gson;
 
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, value="/insertApplicant")
