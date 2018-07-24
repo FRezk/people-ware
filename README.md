@@ -9,7 +9,7 @@ This is a Tech Challenge solved building an entire Web App to hire and find a jo
 FrontEnd
 ```
 - HTML / CSS / JS
-- Tabler UI / Bootstrap / Handlebars / Template String / Fontawesome /  Visual Studio Code
+- Tabler UI / Bootstrap / JQuery / Ajax / Handlebars / Template String / Fontawesome /  Visual Studio Code
 
 ```
 Backend
