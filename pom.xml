@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<name>People-Ware</name>
-	<description>People-Ware Tech Challenge</description>
+	<description>People-Ware Tech Challenge</description> 
 
 	<groupId>br.com.rezk</groupId>
 	<artifactId>peopleware</artifactId>
