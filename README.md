@@ -37,43 +37,47 @@ PgAdmin v4.0 - With a database created, ready to create a new schema
 
 ## How to use?
 
-```
+
 1- Clone the repository
-```
+
 
 ![clone](https://image.ibb.co/fni3Do/pw1.jpg)
 
-```
+
 2- Open PgAdmin v4.0 , create a database called peopleware and create a schema called 'pw'
-```
+
 
 ![schema](https://image.ibb.co/kTPzm8/pw2.jpg)
 
+```
 Obs.: The default project's credentials configuration is 'postgres' as user and 'root' as password. If you have a different credentials, take a look into the step 4 notes.  
+```
 
-```
+
 3- Execute the scripts in order: create_table_structure.sql then insert_jobs.sql
-```
+
 
 ![insert](https://image.ibb.co/cdr6Yo/pw3.jpg)
 
-```
+
 4- Import the project into your IDE
-```
+
 
 ![import](https://image.ibb.co/f4MODo/pw4.jpg)
 
+```
 Obs.: If you have a differente credential then 'postgres' as username, and 'root' as password, open the class 'BeansConfig' and look for the DbExecutor interface implementation, and change the connection credentials.
+```
 
-```
+
 5- Deploy the war (API module) into your Tomcat 9, and run the server
-```
+
 
 ![deploy](https://image.ibb.co/b4AKKT/pw5.jpg)
 
-```
+
 6- We are good to test the Web App. Open your FrontEnd folder and open home.html in your browser
-```
+
 
 ![deploy](https://image.ibb.co/cA7oDo/pw6.jpg)
 
