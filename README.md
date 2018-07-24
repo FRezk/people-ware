@@ -28,6 +28,9 @@ Database
 Jre Java 1.8 or newer
 ```
 ```
+Tomcat v9.0
+```
+```
 PgAdmin v4.0 - With a database created, ready to create a new schema
 ```
 
@@ -112,4 +115,4 @@ change the connection credentials.
 
 * **Fernando D. Rezk** - [People-Ware](https://github.com/FRezk/people-ware.git)
 
-Thanks!
+Thanks for reading!
