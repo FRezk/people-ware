@@ -50,7 +50,8 @@ PgAdmin v4.0 - With a database created, ready to create a new schema
 ![schema](https://image.ibb.co/kTPzm8/pw2.jpg)
 
 ```
-Obs.: The default project's credentials configuration is 'postgres' as user and 'root' as password. If you have a different credentials, take a look into the step 4 notes.  
+Obs.: The default project's credentials configuration is 'postgres' as user and 'root' as password. 
+If you have a different credentials, take a look into the step 4 notes.  
 ```
 
 
@@ -66,7 +67,9 @@ Obs.: The default project's credentials configuration is 'postgres' as user and 
 ![import](https://image.ibb.co/f4MODo/pw4.jpg)
 
 ```
-Obs.: If you have a differente credential then 'postgres' as username, and 'root' as password, open the class 'BeansConfig' and look for the DbExecutor interface implementation, and change the connection credentials.
+Obs.: If you have a differente credential then 'postgres' as username, and 'root' as password, 
+open the class 'BeansConfig' and look for the DbExecutor interface implementation,
+change the connection credentials.
 ```
 
 
