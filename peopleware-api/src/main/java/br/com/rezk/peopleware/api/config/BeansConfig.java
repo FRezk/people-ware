@@ -62,6 +62,9 @@ public class BeansConfig {
 		return new ApplicantDAO();
 	}
 	
+	/*
+	 **  Generic orm mapper, qualifying to jobMapper to return a Job
+	 */
 	@Bean(name="jobMapper")
 	public Mapper mapper() {
 		Mapper mapper = (ResultSet rs) -> {
@@ -84,6 +87,10 @@ public class BeansConfig {
 		return mapper;
 	}
 	
+	
+	/*
+	 **  Generic request mapper, qualifying to applicantRequest to return an Applicant
+	 */
 	@Bean(name="applicantRequest")
 	public MapRequest mapRequest() {
 		MapRequest mapRequest = (Request request) -> {
@@ -116,6 +123,9 @@ public class BeansConfig {
 		return mapRequest;
 	}
 	
+	/*
+	 **  Generic Database executor
+	 */
 	@Bean
 	public DbExecutor dbExecutor() {
 		DbExecutor db = (String clausule) -> {

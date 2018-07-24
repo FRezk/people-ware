@@ -18,12 +18,18 @@ public class ApplicantResource extends Resource {
 	@Autowired
 	private ApplicantService applicantService;
 
+	/*
+	 **  Insert a new Applicant
+	 */
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, value="/insertApplicant")
 	public String insertApplicant(@RequestBody ApplicantRequest request) {
 		return gson.toJson(applicantService.insertApplicant(request));
 	}
 	
+	/*
+	 **  Brings the best applicants for the job
+	 */
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/bestApplicants/{jobId}")
 	public String bestApplicants(@PathVariable int jobId) {

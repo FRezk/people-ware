@@ -19,6 +19,9 @@ public class JobResource extends Resource {
 	@Autowired
 	private JobService jobService;
 	
+	/*
+	 **  Publish a new Job
+	 */
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE, value="/publishJob")
 	public HttpStatus publishJob(@RequestBody Job job) {
@@ -26,18 +29,27 @@ public class JobResource extends Resource {
 		return HttpStatus.ACCEPTED;
 	}
 	
+	/*
+	 **  List all the jobs published
+	 */
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/listJobs")
 	public String listJobs() {
 		return gson.toJson(jobService.listJobs());
 	}
 	
+	/*
+	 **  Brings the details of a specific Job, including its skills
+	 */
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/jobDetail/{id}")
 	public String jobDetails(@PathVariable int id) {
 		return gson.toJson(jobService.jobDetail(id));
 	}
 	
+	/*
+	 **  Brings only the applicable job for a specific applicant
+	 */
 	@CrossOrigin
 	@RequestMapping(method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE, value="/possibleJobs/{applicantId}")
 	public String possibleJobs(@PathVariable("applicantId") int applicantId) {
