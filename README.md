@@ -28,10 +28,6 @@ Database
 Jre Java 1.8 or newer
 ```
 ```
-Postman or any software to test via Http Request
-(Obs.: You may use linux cURL to make the http requests)
-```
-```
 PgAdmin v4.0 - With a database created, ready to create a new schema
 ```
 
